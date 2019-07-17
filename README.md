@@ -1,3 +1,3 @@
-# OAuth site.
+# Auth site.
 
 A token-authorized site test.
