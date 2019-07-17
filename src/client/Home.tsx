@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
 
-export interface AppState
+export interface HomeState
 {
 	
 }
 
-export default class App extends React.Component<{}, AppState>
+/**
+ * @brief Main homepage.
+ */
+export default class Home extends React.Component<{}, HomeState>
 {
 	public constructor(props: any)
 	{
