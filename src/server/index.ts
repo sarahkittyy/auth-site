@@ -11,6 +11,11 @@ app.use('/assets', express.static('assets')); // For built react client JS files
 // API backend endpoint.
 app.use('/api', api);
 
+// Favicon
+app.get('/favicon.ico', (req, res) => {
+	res.sendFile(appRoot.resolve('./img/favicon.ico'));
+});
+
 // Send all other routes to react for react-router to take over.
 app.get('/*', (req, res) => {
 	res.sendFile(appRoot.resolve('./public/index.html'))
