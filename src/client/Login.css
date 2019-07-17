@@ -1,0 +1,49 @@
+body {
+	background-color: #ddd;
+}
+
+.form {
+	border: 2px inset grey;
+	width: 30%;
+	padding: 25px;
+	margin: auto;
+	align-content: center;
+	background-color: white;
+	text-align: center;
+	display: block;
+}
+
+p#text {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, 'Times New Roman', Times, serif;
+	font-size: 1.5em;
+	margin: 0;
+}
+
+.inputBox {
+	outline: none;
+	border: 1px solid #777;
+	padding: 10px 0px;
+	text-align: center;
+	height: 8px;
+	width: 150px;
+	margin-bottom: 25px;
+	border-radius: 8px;
+}
+
+.submitButton {
+	outline: none;
+	border: 2px solid grey;
+	background-color: #999;
+	padding: 20px 45px;
+	border-radius: 8px;
+}
+
+.submitButton:hover {
+	border: 2px solid #666;
+	background-color: #666;
+}
+
+.submitButton:active {
+	border: 2px inset grey;
+	background-color: #333;
+}
