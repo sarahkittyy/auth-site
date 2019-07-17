@@ -2,6 +2,7 @@ import express from 'express';
 
 // Main api endpoint.
 const api = express.Router();
+api.use(express.json());
 
 // Testing
 api.get('/', (req, res) => {
