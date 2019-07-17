@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './Home.css';
 
 export interface HomeState
 {
@@ -16,6 +16,11 @@ export default class Home extends React.Component<{}, HomeState>
 		super(props);
 		
 		this.state = {};
+	}
+	
+	public componentDidMount()
+	{
+		document.title = "Homepage";	
 	}
 	
 	public render()
