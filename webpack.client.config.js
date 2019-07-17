@@ -28,7 +28,7 @@ module.exports = {
 		publicPath: '/assets/',
 		port: 3001,
 		proxy: {
-			'/api': 'http://localhost:3000'
+			'**': 'http://localhost:3000'
 		}
 	},
 	resolve: {
