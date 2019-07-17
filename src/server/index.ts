@@ -1,12 +1,17 @@
 import express from 'express';
 import appRoot from 'app-root-path';
 import api from './api';
+import session from 'express-session';
+require('dotenv').config();
 
 // Main app
 const app = express();
 // Static paths.
 app.use('/public', express.static('public')); // For index.html and images.
 app.use('/assets', express.static('assets')); // For built react client JS files.
+app.use(session({
+	secret: process.env.SECRET
+}));
 
 // API backend endpoint.
 app.use('/api', api);
