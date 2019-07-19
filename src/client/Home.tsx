@@ -6,7 +6,7 @@ import $ from 'jquery';
 export interface HomeState
 {
 	authorized: boolean;
-	data: string;
+	username: string;
 }
 
 /**
@@ -20,7 +20,7 @@ export default class Home extends React.Component<{}, HomeState>
 		
 		this.state = {
 			authorized: true,
-			data: ''
+			username: ''
 		};
 	}
 	
@@ -30,16 +30,25 @@ export default class Home extends React.Component<{}, HomeState>
 		
 		$.ajax({
 			method: 'GET',
-			url: '/api/data',
+			url: '/api/me',
 			success: (data) => {
 				this.setState({
-					data: data
+					username: data
 				});
 			},
 			error: (xhr) => {
-				this.setState({
-					authorized: false
-				});
+				$.ajax({
+					method: 'GET',
+					url: '/api/reauth',
+					success: (data) => {
+						location.reload();
+					},
+					error: (xhr) => {
+						this.setState({
+							authorized: false
+						});
+					}
+				})
 			}
 		});
 	}
@@ -47,10 +56,12 @@ export default class Home extends React.Component<{}, HomeState>
 	public render()
 	{
 		return (
-			<h1>
+			<div className="main">
+				<h1>
+					{this.state.username.length > 0 ? `Logged in as ${this.state.username}` : 'Not logged in.. Redirecting...'}
+				</h1>
 				{this.state.authorized ? '' : <Redirect to='/login' />}
-				{this.state.data}
-			</h1>
+			</div>
 		);
 	}
 }

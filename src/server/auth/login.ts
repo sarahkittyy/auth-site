@@ -13,12 +13,17 @@ export default function(req: express.Request, res: express.Response)
 	//TODO: better username / password validation.
 	if(username === 'user' && password === 'password')
 	{
-		req.session.token = jwt.sign({
+		req.session.apitoken = jwt.sign({
 			username: username
 		}, process.env.SECRET, {
-			expiresIn: 5
+			expiresIn: 15
 		});
-		return res.redirect('/api/secure');
+		req.session.refreshtoken = jwt.sign({
+			
+		}, process.env.SECRET, {
+			expiresIn: 180
+		});
+		return res.status(200).send('Successfully Authenticated.');
 	}
 	else
 	{

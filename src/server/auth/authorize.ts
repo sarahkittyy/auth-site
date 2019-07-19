@@ -6,8 +6,8 @@ import jwt from 'jsonwebtoken';
  */
 export default function (req: express.Request, res: express.Response, next: express.NextFunction)
 {
-	// Get the token.
-	let token: string = req.session.token || 'invalid-token';
+	// Get the api token.
+	let token: string = req.session.apitoken || 'invalid-token';
 	
 	// Validate the token.
 	jwt.verify(token, process.env.SECRET, (err, decoded) => {

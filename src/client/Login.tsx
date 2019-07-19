@@ -40,7 +40,7 @@ export default class Login extends React.Component<{}, LoginState>
 				});
 			},
 			error: (xhr) => {
-				alert(xhr.status + ' ' + xhr.statusText);
+				alert(xhr.responseText);
 			}
 		});
 	}
